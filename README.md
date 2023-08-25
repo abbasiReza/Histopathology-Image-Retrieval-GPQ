@@ -1,1 +1,65 @@
-# Histopathology-Image-Retrieval-GPQ
+# Histopathology Image Retrieval Project-GPQ
+
+ 
+
+Welcome to the Histopathology Image Retrieval project! This repository contains code and resources for implementing a deep learning model to perform histopathology image retrieval. The goal of this project is to develop a robust system that can retrieve relevant histopathology images based on user queries. Convolutional models, along with attention mechanisms, are employed to achieve accurate and meaningful image retrieval.
+
+**Note:** This project is based on the research presented in the paper, "Generalized Product Quantization Network for Semi-supervised Image Retrieval"
+
+
+## Table of Contents
+
+- [Project Description](#project-description)
+- [Dataset](#dataset)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Model Architecture](#model-architecture)
+
+## Project Description
+
+In the Histopathology Image Retrieval project, we tackle the task of retrieving histopathology images based on user-defined queries. Histopathology images play a crucial role in medical diagnosis and research, and efficient retrieval of relevant images can aid in accurate diagnosis and analysis. To achieve this, we have implemented a deep learning model that leverages convolutional neural networks (CNNs) and attention mechanisms. By combining these techniques, we aim to capture both local and global features within the images, enhancing the retrieval accuracy.
+
+## Dataset
+
+This project utilizes the following datasets:
+
+1. **BRACS Dataset**
+   - Website: [BRACS Dataset](https://www.bracs.icar.cnr.it/)
+   - Description: The BRACS dataset contains a collection of histopathology images for various tissue types. It serves as a valuable resource for training and evaluating our image retrieval model.
+
+2. **CRC Dataset**
+   - Website: [CRC Dataset](https://warwick.ac.uk/fac/cross_fac/tia/data/extended_crc_grading/)
+   - Description: The CRC dataset offers histopathology images related to colorectal cancer. These images contribute to the diversity of the training data and aid in building a robust retrieval system.
+
+3. **BATCH Dataset**
+   - Website: [BATCH Dataset](https://iciar2018-challenge.grand-challenge.org/Dataset/)
+   - Description: The BATCH dataset is a part of the ICAR 2018 challenge and consists of histopathology images for various tasks. It provides an additional set of images for validating and testing our retrieval model.
+
+## Requirements
+- Tensorflow=1.14
+- Tflearn=0.3.2
+- Matplotlib=3.2.1
+```
+conda install pytorch torchvision cudatoolkit=10.0 -c pytorch
+```
+- thop
+```
+pip install thop
+```
+
+ 
+## Abstract
+
+Image retrieval methods that employ hashing or vector quantization have achieved great success by taking advantage of deep learning. However, these approaches do not meet expectations unless expensive label information is sufficient. To resolve this issue, we propose the first quantization-based semi-supervised image retrieval scheme: Generalized Product Quantization (GPQ) network. We design a novel metric learning strategy that preserves semantic similarity between labeled data, and employ entropy regularization term to fully exploit inherent potentials of unlabeled data. Our solution increases the generalization capacity of the quantization network, which allows overcoming previous limitations in the retrieval community. Extensive experimental results demonstrate that GPQ yields state-of-the-art performance on large-scale real image benchmark datasets.
+## Concept
+
+## Overall Architecture
+
+<p align="center"><img src="Overall_architecture.png" width="900"></p>
+
+GPQ consitsts of three components: feature extractor *F*, PQ table *Z* and classifier *C*. All the components are trained with the small amount of labeled data with *N-pair Product Quantization loss*, and the large amount of unlabeled data with *Subspace Entropy Mini-max loss*.
+
+## 2D Voronoi Diagram of Our Concept
+<p align="center"><img src="2D_voronoi_illustration.png" width="900"></p>
+
+While training, codewords move toward unlabeled data points, and at the same time, both labeled and unlabeled data points cluster near the codewords.
